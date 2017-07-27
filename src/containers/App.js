@@ -23,12 +23,11 @@ class App extends React.Component {
         this.props.add(item);
     }
     render() {
-      console.log("here");
         if (!this.props.myList && !this.props.recommendations) return null;
         return (
           <Grid fluid>
-            <List data = {this.props.recommendations} button = "Add" header = "Recommendations" onClick = {(title) => {this.add(title)}}/>
-            <List data = { this.props.myList } button = "Remove" header = "My List" onClick = {(title) => {this.remove(title)}}/>
+            <List backgroundColor="aqua" data = {this.props.recommendations} button = "Add" header = "Recommendations" onClick = {(title) => {this.add(title)}}/>
+            <List backgroundColor="antiquewhite" data = { this.props.myList } button = "Remove" header = "My List" onClick = {(title) => {this.remove(title)}}/>
           </Grid>
         );
     }

@@ -18,7 +18,10 @@ export default function reducer(state = initialState, action) {
                 return newState;
             } else {
                 return Object.assign({}, state, {
-                    mylist: [...state.mylist, action.item]
+                    mylist: [...state.mylist, action.item],
+                    recommendations: Object.assign([], newState.recommendations.filter(item => {
+                        return item.id != action.item.id
+                    }))
                 })
             }
             break;
@@ -26,7 +29,8 @@ export default function reducer(state = initialState, action) {
             return Object.assign({}, newState, {
                 mylist: Object.assign([], newState.mylist.filter(item => {
                     return item.id != action.item.id
-                }))
+                })),
+                recommendations: [...state.recommendations, action.item]
             })
             break;
         default:

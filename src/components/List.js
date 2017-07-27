@@ -1,17 +1,6 @@
 import React, { PropTypes } from 'react';
 import { Row, Col, Table, Button } from 'react-bootstrap';
 import Item from './Item';
-const getRandomBackground= ()=>{
-  const colors = {
-    0:"yellow",
-    1:"blue",
-    2:"white",
-    3:"green",
-    4:"aqua"
-  };
-  const random = Math.ceil(Math.random()*10);
-  return random>4?colors[random-5]:colors[random];
-}
 export default class List extends React.Component{
   constructor(props){
     super(props);
@@ -31,7 +20,7 @@ export default class List extends React.Component{
   }
   render(){
     return(
-      <Row style={{backgroundColor:getRandomBackground()}}>
+      <Row style={{backgroundColor:this.props.backgroundColor}}>
         <Col lg={12} md={12} sm={12}>
           <label htmlFor="tops" className="header">{this.props.header}</label>
           <Table id="tops">
